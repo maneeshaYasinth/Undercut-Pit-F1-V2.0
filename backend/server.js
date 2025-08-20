@@ -24,6 +24,10 @@ app.use("/api/auth", authRoutes);
 const raceRoutes = require("./routes/raceRoutes");
 app.use("/api/races", raceRoutes);
 
+//get driver routes
+const driverRoutes = require("./routes/driverRoutes");
+app.use("/api/drivers", driverRoutes);
+
 // Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "F1 Backend is running 🚀 lets goo" });
