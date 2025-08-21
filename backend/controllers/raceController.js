@@ -3,11 +3,11 @@ const axios = require("axios");
 //get all races by user preference
 const getRace = async(req,res)=>{
     try{
-        const {session,round} = req.query;
+        const {season,round} = req.query;
         let url = "https://api.jolpi.ca/ergast/f1";
 
-        if(session){
-            url += `/${session}`;
+        if(season){
+            url += `/${season}`;
             if(round){
                 url += `/${round}`;
             }
