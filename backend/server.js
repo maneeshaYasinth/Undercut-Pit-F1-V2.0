@@ -32,6 +32,10 @@ app.use("/api/drivers", driverRoutes);
 const resultsRoutes = require("./routes/resultRoutes");
 app.use("/api/results", resultsRoutes);
 
+//get getConstructorStanding routes
+const constructorstandings = require("./routes/constructorstandingsRoutes");
+app.use("/api/constructorstandings", constructorstandings);
+
 // Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "F1 Backend is running 🚀 lets goo" });
