@@ -40,6 +40,10 @@ app.use("/api/qualiresults", quliResultsRoutes);
 const constructorstandings = require("./routes/constructorstandingsRoutes");
 app.use("/api/constructorstandings", constructorstandings);
 
+//get getDriverStanding routes
+const driverStandings = require("./routes/driverStandingRoutes");
+app.use("/api/driverstandings", driverStandings);
+
 // Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "F1 Backend is running 🚀 lets goo" });
