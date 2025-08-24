@@ -16,8 +16,8 @@ function Home() {
       </video>
 
       {/* Overlay content */}
-      <div className="relative flex min-h-screen w-full items-center justify-center bg-black/40 text-white">
-        <h1 className="text-8xl font-[pacifico] tracking-[0.1em] uppercase font-bold">
+      <div className="relative flex min-h-screen w-full items-center justify-center bg-black/40 text-white px-4 text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-[pacifico] tracking-[0.1em] uppercase font-bold">
           UnderCutPit F1
         </h1>
       </div>
