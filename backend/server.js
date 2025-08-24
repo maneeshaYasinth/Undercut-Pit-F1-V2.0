@@ -32,6 +32,10 @@ app.use("/api/drivers", driverRoutes);
 const resultsRoutes = require("./routes/resultRoutes");
 app.use("/api/results", resultsRoutes);
 
+//get quli results routes
+const quliResultsRoutes = require("./routes/quliResultRoutes");
+app.use("/api/qualiresults", quliResultsRoutes);
+
 //get getConstructorStanding routes
 const constructorstandings = require("./routes/constructorstandingsRoutes");
 app.use("/api/constructorstandings", constructorstandings);
