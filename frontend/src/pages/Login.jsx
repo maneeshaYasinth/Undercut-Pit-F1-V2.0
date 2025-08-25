@@ -19,7 +19,7 @@ function Login() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
+    <div className="h-screen flex items-center justify-center bg-gradient-to-b from-[#1a0000] to-[#120000]">
       <form
         onSubmit={handleSubmit}
         className="bg-white/30 backdrop-blur-lg shadow-lg p-8 rounded-2xl w-96"
