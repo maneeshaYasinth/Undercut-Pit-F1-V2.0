@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login"
 import Drivers from "./pages/Drivers"
 import DriverStandings from "./pages/driverStansding"
+import ConstructorStandings from './pages/ConstructorStandins';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/drivers" element={<Drivers />} />
         <Route path="/driver-standings" element={<DriverStandings />} />
+        <Route path="/constructor-standings" element={<ConstructorStandings />} />
       </Routes>
     </>
   );
