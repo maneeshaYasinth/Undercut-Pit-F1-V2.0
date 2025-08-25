@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Pixelify+Sans:wght@400..700&family=Stalinist+One&display=swap');
+
+@theme {
+  --font-pacifico: "Pacifico", cursive;
+}
