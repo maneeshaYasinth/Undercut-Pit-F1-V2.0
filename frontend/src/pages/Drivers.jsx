@@ -22,26 +22,19 @@ function Drivers() {
   if (loading) return <p className="text-center mt-6">Loading drivers...</p>;
 
   return (
-    <div className="p-6">
+    <div className="p-6 mt-14">
       <h1 className="text-2xl font-bold text-center mb-6">F1 Drivers</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {drivers.map((driver) => (
-          <div
-            key={driver.id}
-            className="p-4 rounded-2xl shadow-md bg-white/20 backdrop-blur-lg"
-          >
+          <div key={driver.id} className="p-4 rounded-2xl shadow-md bg-white/20 backdrop-blur-lg">
             <img
-              src={driver.headshot_url || "/default-driver.png"}
-              alt={driver.full_name}
+              src={driver.headshotUrl || "/default-driver.png"} // use camelCase
+              alt={driver.fullName} // use camelCase
               className="w-32 h-32 object-cover rounded-full mx-auto mb-3"
             />
-            <h2 className="text-xl font-semibold text-center">
-              {driver.full_name}
-            </h2>
-            <p className="text-center text-gray-700">{driver.nationality}</p>
-            <p className="text-center text-gray-500 text-sm">
-              DOB: {driver.dob}
-            </p>
+            <h2 className="text-xl font-semibold text-center">{driver.fullName}</h2>
+            <p className="text-center text-gray-700">{driver.teamName}</p>
+            <p className="text-center text-gray-500 text-sm">Country: {driver.countryCode}</p>
           </div>
         ))}
       </div>
