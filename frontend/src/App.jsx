@@ -5,6 +5,7 @@ import Login from "./pages/Login"
 import Drivers from "./pages/Drivers"
 import DriverStandings from "./pages/driverStansding"
 import ConstructorStandings from './pages/ConstructorStandins';
+import RaceResults from "./pages/RaceResults"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/drivers" element={<Drivers />} />
         <Route path="/driver-standings" element={<DriverStandings />} />
         <Route path="/constructor-standings" element={<ConstructorStandings />} />
+        <Route path="/raceresults" element={<RaceResults />} />
       </Routes>
     </>
   );
