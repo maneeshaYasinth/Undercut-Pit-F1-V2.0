@@ -7,6 +7,7 @@ import DriverStandings from "./pages/driverStansding"
 import ConstructorStandings from './pages/ConstructorStandins';
 import RaceResults from "./pages/RaceResults"
 import QuliResult from "./pages/QuliResult"
+import Register from "./pages/Register"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="register" element={<Register />} />
         <Route path="/drivers" element={<Drivers />} />
         <Route path="/driver-standings" element={<DriverStandings />} />
         <Route path="/constructor-standings" element={<ConstructorStandings />} />
