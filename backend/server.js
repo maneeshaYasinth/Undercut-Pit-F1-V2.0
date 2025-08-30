@@ -44,6 +44,14 @@ app.use("/api/constructorstandings", constructorstandings);
 const driverStandings = require("./routes/driverStandingRoutes");
 app.use("/api/driverstandings", driverStandings);
 
+//post the predictions
+const predictions = require("./routes/predictionRoutes");
+app.use("/api/predictions", predictions);
+
+//post the manuel result and get the leaderboard
+const scoreRoutes = require("./routes/scoreRoutes");
+app.use("/api/scores", scoreRoutes);
+
 // Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "F1 Backend is running 🚀 lets goo" });
