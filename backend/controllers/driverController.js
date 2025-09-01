@@ -13,15 +13,15 @@ const getDrivers = async (req, res) => {
         const response = await axios.get(url);
 
         const drivers = response.data.map(driver => ({
-            id: driver.driver_number,
-            fullName: driver.full_name,
-            broadcastName: driver.broadcast_name,
-            teamName: driver.team_name,
-            headshotUrl: driver.headshot_url,
-            countryCode: driver.country_code
+          id: driver.driver_number,
+          fullName: driver.full_name,
+          code: driver.name_acronym,   
+          broadcastName: driver.broadcast_name,
+          teamName: driver.team_name,
+          headshotUrl: driver.headshot_url,
+          countryCode: driver.country_code
         }));
-
-
+        
         res.json(drivers);
     } catch (err) {
         console.error("Error fetching drivers:", err);
