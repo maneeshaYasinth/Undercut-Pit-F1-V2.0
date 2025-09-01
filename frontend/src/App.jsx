@@ -8,6 +8,7 @@ import ConstructorStandings from './pages/ConstructorStandins';
 import RaceResults from "./pages/RaceResults"
 import QuliResult from "./pages/QuliResult"
 import Register from "./pages/Register"
+import PredictionForm from "./pages/PredictionForm"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/constructor-standings" element={<ConstructorStandings />} />
         <Route path="/raceresults" element={<RaceResults />} />
         <Route path="/quliresults" element={<QuliResult />} />
+        <Route path="/predictions" element={<PredictionForm />} />
       </Routes>
     </>
   );
