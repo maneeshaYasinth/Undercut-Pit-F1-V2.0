@@ -10,6 +10,11 @@ yarn-error.log*
 **/.env.test.local
 **/.env.production.local
 
+# Editor settings
+.vscode/
+.idea/
+*.swp
+
 # Logs
 logs
 *.log
