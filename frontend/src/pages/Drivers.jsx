@@ -35,7 +35,7 @@ function Drivers() {
             <h3 className="text-xl font-semibold text-center">{driver.id}</h3>
             <h2 className="text-xl font-semibold text-center">{driver.fullName}</h2>
             <p className="text-center text-white">{driver.teamName}</p>
-            <p className="text-center text-white text-sm">Country: {driver.countryCode}</p>
+            <p className="text-center text-white text-sm">Code Name: {driver.code}</p>
           </div>
         ))}
       </div>
