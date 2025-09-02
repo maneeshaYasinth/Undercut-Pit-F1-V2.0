@@ -11,7 +11,7 @@ It is built with **Node.js, Express, JWT authentication, and Ergast F1 API integ
 - ✅ **Secure Routes** protected with middleware
 - ✅ **Race Results API** (fetched from Ergast API)
 - ✅ **Constructor Standings API**
-- ✅ **Driver Predictions & Leaderboard** (planned feature 🚧)
+- ✅ **Driver Predictions & Leaderboard** 
 - ✅ **Error Handling** with clean responses
 
 ---
