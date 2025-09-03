@@ -1,10 +1,17 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react"; // icons
+import { Menu, X } from "lucide-react"; 
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const links = ["Home", "News", "Seasons", "Drivers"];
+  const links = [
+      { name: "Home", path: "/" },
+      { name: "News", path: "/news" },
+      { name: "Seasons", path: "/seasons" },
+      { name: "Drivers", path: "/drivers" }
+  ];
+
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
@@ -13,9 +20,13 @@ function Navbar() {
                       rounded-full backdrop-blur-md bg-white/20 border border-white/30 
                       shadow-lg text-white text-xl font-medium">
         {links.map((link) => (
-          <a key={link} href={`#${link.toLowerCase()}`} className="hover:text-red-400 transition">
-            {link}
-          </a>
+          <Link
+            key={link.name}
+            to={link.path}
+            className="hover:text-red-400 transition"
+          >
+            {link.name}
+          </Link>
         ))}
       </div>
 
