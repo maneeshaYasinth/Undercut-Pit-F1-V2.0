@@ -10,6 +10,7 @@ import QuliResult from "./pages/QuliResult"
 import Register from "./pages/Register"
 import PredictionForm from "./pages/PredictionForm"
 import Leaderboard from "./pages/Leaderboard";
+import News from './components/News';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/quliresults" element={<QuliResult />} />
         <Route path="/predictions" element={<PredictionForm />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/news" element={<News />} />
       </Routes>
     </>
   );
