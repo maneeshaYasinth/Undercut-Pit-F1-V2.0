@@ -51,14 +51,14 @@ function Navbar() {
             <X size={28} />
           </button>
           {links.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+            <Link
+              key={link.name}
+              to={link.path}
               className="text-lg hover:text-red-400 transition"
               onClick={() => setIsOpen(false)}
             >
-              {link}
-            </a>
+              {link.name}
+            </Link>
           ))}
         </div>
       )}
