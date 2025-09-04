@@ -24,7 +24,7 @@ export default function Leaderboard() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1a0000] to-[#120000] text-white flex flex-col items-center py-12">
       <h2 className="text-4xl font-extrabold mt-18 mb-8 tracking-wide text-red-600 drop-shadow-lg">
-        Championship Standing
+        Leaderboard
       </h2>
 
       {/* Season Selector with glass effect */}
