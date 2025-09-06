@@ -3,8 +3,8 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login"
 import Drivers from "./pages/Drivers"
-import DriverStandings from "./pages/driverStansding"
-import ConstructorStandings from './pages/ConstructorStandins';
+import DriverStandings from "./components/driverStansding"
+import ConstructorStandings from './components/ConstructorStandins';
 import RaceResults from "./pages/RaceResults"
 import QuliResult from "./pages/QuliResult"
 import Register from "./pages/Register"
