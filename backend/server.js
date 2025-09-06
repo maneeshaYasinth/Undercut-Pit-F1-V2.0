@@ -52,6 +52,10 @@ app.use("/api/predictions", predictions);
 const scoreRoutes = require("./routes/scoreRoutes");
 app.use("/api/scores", scoreRoutes);
 
+//get news routes
+const newsRoutes = require("./routes/newsRoutes");
+app.use("/api/news", newsRoutes);
+
 // Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "F1 Backend is running 🚀 lets goo" });
