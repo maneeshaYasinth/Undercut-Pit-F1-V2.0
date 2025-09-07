@@ -8,8 +8,9 @@ function Navbar() {
   const links = [
       { name: "Home", path: "/" },
       { name: "News", path: "/news" },
-      { name: "Seasons", path: "/seasons" },
-      { name: "Drivers", path: "/drivers" }
+      { name: "Sessions", path: "/sessions" },
+      { name: "Championship", path: "/championship" },
+      { name: "Game", path: "/game" }
   ];
 
 
