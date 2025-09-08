@@ -5,9 +5,12 @@ const API_URL = "http://localhost:5000/api/auth";
 export const login = async (email, password) => {
   try {
     const response = await axios.post(`${API_URL}/login`, { email, password });
+
     if (response.data.token) {
-      localStorage.setItem("token", response.data.token); // save token
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user)); // ✅ Save user
     }
+
     return response.data;
   } catch (error) {
     throw error.response?.data?.message || "Login failed";
@@ -22,9 +25,9 @@ export const register = async ({ username, email, password }) => {
       password,
     });
 
-    // ✅ Save token if backend sends it
     if (response.data.token) {
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user)); // ✅ Save user
     }
 
     return response.data;
@@ -34,7 +37,8 @@ export const register = async ({ username, email, password }) => {
 };
 
 export const getToken = () => localStorage.getItem("token");
-
+export const getUser = () => JSON.parse(localStorage.getItem("user")); // ✅ Helper
 export const logout = () => {
   localStorage.removeItem("token");
+  localStorage.removeItem("user");
 };
