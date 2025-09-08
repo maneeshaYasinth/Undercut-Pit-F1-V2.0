@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { login } from "../services/authService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate("/drivers"); // redirect after login
+      navigate("/"); // redirect after login
     } catch (err) {
       setError(err);
     }
@@ -46,6 +46,12 @@ function Login() {
         >
           Login
         </button>
+        <p className="text-sm text-center mt-4 text-white">
+                 Don't have an account?{" "}
+                  <Link to="/register" className="text-red-300 hover:underline">
+                    Register
+                  </Link>
+          </p>
       </form>
     </div>
   );
