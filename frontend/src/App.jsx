@@ -13,6 +13,7 @@ import News from './components/News';
 import Game from './pages/Game';
 import Session from './pages/Session';
 import AuthButton from './components/AuthButton'
+import SubmitResult from './pages/SubmitResult';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/game" element={<Game />} />
         <Route path="/news" element={<News />} />
         <Route path="/sessions" element={<Session />} />
+        <Route path="/14ssmm" element={<SubmitResult />} />
       </Routes>
     </>
   );
