@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState(false);
+
 
   const links = [
       { name: "Home", path: "/" },
       { name: "News", path: "/news" },
-      { name: "Sessions", path: "/sessions" },
+      { name: "Results", path: "/sessions" },
       { name: "Championship", path: "/championship" },
       { name: "Game", path: "/game" }
   ];
@@ -24,7 +26,8 @@ function Navbar() {
           <Link
             key={link.name}
             to={link.path}
-            className="hover:text-red-400 transition"
+            onClick={() => setActive(link.name)}
+            className={`hover:text-red-400 transition ${active === link.name ? "underline" : ""}`}
           >
             {link.name}
           </Link>

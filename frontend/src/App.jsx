@@ -12,11 +12,13 @@ import Leaderboard from "./pages/Leaderboard";
 import News from './components/News';
 import Game from './pages/Game';
 import Session from './pages/Session';
+import AuthButton from './components/AuthButton'
 
 function App() {
   return (
     <>
       <Navbar />
+      <AuthButton />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
