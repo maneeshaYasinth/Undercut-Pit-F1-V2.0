@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { login } from "../services/authService";
 import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { loginUser } = useAuth(); // ✅ get context function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await login(email, password);
-      navigate("/"); // redirect after login
+      const data = await login(email, password); // login via authService
+      loginUser(data.user);                     // ✅ update context immediately
+      navigate("/");                             // redirect after login
     } catch (err) {
       setError(err);
     }
@@ -47,11 +50,11 @@ function Login() {
           Login
         </button>
         <p className="text-sm text-center mt-4 text-white">
-                 Don't have an account?{" "}
-                  <Link to="/register" className="text-red-300 hover:underline">
-                    Register
-                  </Link>
-          </p>
+          Don't have an account?{" "}
+          <Link to="/register" className="text-red-300 hover:underline">
+            Register
+          </Link>
+        </p>
       </form>
     </div>
   );

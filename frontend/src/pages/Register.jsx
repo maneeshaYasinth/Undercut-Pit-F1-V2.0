@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { register } from "../services/authService";
 import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -9,22 +10,25 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { loginUser } = useAuth();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
+  if (password !== confirmPassword) {
+    setError("Passwords do not match");
+    return;
+  }
 
-    try {
-      await register({ username, email, password }); 
-      navigate("/drivers"); // ✅ go straight to app after auto-login
-    } catch (err) {
-      setError(err.message || "Registration failed");
-    }
-  };
+  try {
+    const data = await register({ username, email, password }); // capture response
+    loginUser(data.user); // update context immediately
+    navigate("/"); // redirect to homepage or dashboard
+  } catch (err) {
+    setError(err || "Registration failed");
+  }
+};
+
 
   return (
     <div className="h-screen flex items-center justify-center bg-gradient-to-b from-[#1a0000] to-[#120000]">
