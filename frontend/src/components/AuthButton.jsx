@@ -14,6 +14,11 @@ export default function ProfileDrawer() {
     navigate("/login");
   }
 
+  const handleLogin = () =>{
+    setIsOpen(false);
+    navigate("/login");
+  }
+
 
   return (
     <>
@@ -21,7 +26,7 @@ export default function ProfileDrawer() {
         onClick={toggleDrawer}
         className="fixed top-4 right-4 z-80 bg-red-600 text-white p-2 rounded-lg hover:bg-red-700"
       >
-        {user ? `Hi, ${user.username}` : "Login"}
+        {user ? `Hi👋, ${user.username}` : "Login"}
       </button>
 
       <div
@@ -42,8 +47,15 @@ export default function ProfileDrawer() {
               Logout
             </button>
           </>
-        ) : (
+        ) : (<>
           <p className="text-white">Not logged in</p>
+          <button
+              onClick={handleLogin}
+              className="mt-6 w-full z-55 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg"
+            >
+              Login
+            </button>
+            </>
         )}
       </div>
     </>
