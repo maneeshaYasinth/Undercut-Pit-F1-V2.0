@@ -13,6 +13,7 @@ It is built with **Node.js, Express, JWT authentication, and Ergast F1 API integ
 - ✅ **Constructor Standings API**
 - ✅ **Driver Predictions & Leaderboard** 
 - ✅ **Error Handling** with clean responses
+- ✅ **ML Interrgation** try to make a prediction model
 
 ---
 
