@@ -11,6 +11,7 @@ import PredictionForm from "./pages/PredictionForm"
 import Leaderboard from "./pages/Leaderboard";
 import News from './components/News';
 import Game from './pages/Game';
+import TeamRadio from './components/TeamRadio';
 import Session from './pages/Session';
 import AuthButton from './components/AuthButton'
 import SubmitResult from './pages/SubmitResult';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/sessions" element={<Session />} />
         <Route path="/14ssmm" element={<SubmitResult />} />
+        <Route path="/teamradio" element={<TeamRadio />} />
       </Routes>
     </>
   );
