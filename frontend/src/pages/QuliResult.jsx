@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getQualiResults } from "../services/quliResultService";
+import TeamRadioNavigate from "../components/TeamRadioButton"
 
 export default function RaceResults() {
   const [results, setResults] = useState([]);
@@ -35,6 +36,7 @@ export default function RaceResults() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1a0000] to-[#120000] text-white flex flex-col items-center py-12">
+      <TeamRadioNavigate />
       <h2 className="text-4xl font-extrabold mt-18 mb-8 tracking-wide text-red-600 drop-shadow-lg">
         {loading
           ? "Loading Qualifying Results..."
