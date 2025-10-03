@@ -56,6 +56,10 @@ app.use("/api/scores", scoreRoutes);
 const newsRoutes = require("./routes/newsRoutes");
 app.use("/api/news", newsRoutes);
 
+//get get team radio routes
+const teamRadioRoutes = require("./routes/teamRadioRoutes");
+app.use("/api/teamradio", teamRadioRoutes);
+
 // Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "F1 Backend is running 🚀 lets goo" });
