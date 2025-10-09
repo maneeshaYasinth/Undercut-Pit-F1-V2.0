@@ -50,7 +50,7 @@ export default function RaceResults() {
         <select
           value={season}
           onChange={handleSeasonChange}
-          className="w-full p-2 rounded-lg text-white bg-red-800 backdrop-blur-md border border-red-600 hover:bg-white/20 transition duration-300"
+          className="w-full p-2 rounded-lg text-white bg-red-800 backdrop-blur-md border border-red-600  transition duration-300"
         >
           <option value="2025">2025</option>
           <option value="2024">2024</option>
@@ -64,7 +64,7 @@ export default function RaceResults() {
         <select
           value={round}
           onChange={handleRoundChange}
-          className="w-full p-2 rounded-lg text-white bg-red-800 backdrop-blur-md border border-red-600 hover:bg-white/20 transition duration-300"
+          className="w-full p-2 rounded-lg text-white bg-red-800 backdrop-blur-md border border-red-600  transition duration-300"
         >
           {Array.from({ length: 21 }, (_, i) => (
             <option key={i + 1} value={i + 1}>
