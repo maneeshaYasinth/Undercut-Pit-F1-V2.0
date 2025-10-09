@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getQualiResults } from "../services/quliResultService";
+import TeamRadioNavigate from "../components/TeamRadioButton"
 
 export default function RaceResults() {
   const [results, setResults] = useState([]);
@@ -35,6 +36,7 @@ export default function RaceResults() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1a0000] to-[#120000] text-white flex flex-col items-center py-12">
+      <TeamRadioNavigate />
       <h2 className="text-4xl font-extrabold mt-18 mb-8 tracking-wide text-red-600 drop-shadow-lg">
         {loading
           ? "Loading Qualifying Results..."
@@ -48,7 +50,7 @@ export default function RaceResults() {
         <select
           value={season}
           onChange={handleSeasonChange}
-          className="w-full p-2 rounded-lg text-white bg-red-800 backdrop-blur-md border border-red-600 hover:bg-white/20 transition duration-300"
+          className="w-full p-2 rounded-lg text-white bg-red-800 backdrop-blur-md border border-red-600  transition duration-300"
         >
           <option value="2025">2025</option>
           <option value="2024">2024</option>
@@ -62,7 +64,7 @@ export default function RaceResults() {
         <select
           value={round}
           onChange={handleRoundChange}
-          className="w-full p-2 rounded-lg text-white bg-red-800 backdrop-blur-md border border-red-600 hover:bg-white/20 transition duration-300"
+          className="w-full p-2 rounded-lg text-white bg-red-800 backdrop-blur-md border border-red-600  transition duration-300"
         >
           {Array.from({ length: 21 }, (_, i) => (
             <option key={i + 1} value={i + 1}>
