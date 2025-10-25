@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Admin = require('../models/Admins');
 
 // register a user (with auto-login)
 const registerUser = async (req, res) => {
@@ -40,6 +41,44 @@ const registerUser = async (req, res) => {
   }
 };
 
+// register an admin (with auto-login)
+const registerAdmin = async (req, res) => {
+  try {
+    const { adminname, email, password } = req.body;
+
+    // Check if admin already exists
+    const existingAdmin = await Admin.findOne({ email });
+    if (existingAdmin) return res.status(400).json({ message: "Admin already exists" });
+
+    // Hash password
+    const salt = await bcrypt.genSalt(10);
+    const passwordHash = await bcrypt.hash(password, salt);
+
+    // Save the new admin
+    const newAdmin = new Admin({ adminname, email, passwordHash });
+    await newAdmin.save();
+
+    // Generate token after registration (mark as admin)
+    const token = jwt.sign(
+      { id: newAdmin._id, isAdmin: true },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
+    res.status(201).json({
+      token,
+      admin: {
+        id: newAdmin._id,
+        adminname: newAdmin.adminname,
+        email: newAdmin.email,
+      },
+    });
+  } catch (err) {
+    console.error("Error registering admin:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 // login a user
 const loginUser = async (req, res) => {
   try {
@@ -74,4 +113,34 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+//login as a admin
+const loginAdmin = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const admin = await Admin.findOne({ email });
+    if (!admin) return res.status(400).json({ message: "Invalid Credentials" });
+
+    const isMatch = await bcrypt.compare(password, admin.passwordHash);
+    if (!isMatch) return res.status(400).json({ message: "Invalid Credentials" });
+
+    const token = jwt.sign(
+      { id: admin._id, isAdmin: true },  
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
+    res.json({
+      token,
+      admin: {
+        id: admin._id,
+        adminname: admin.adminname,
+        email: admin.email,
+      },
+    });
+  } catch (err) {
+    console.error("Error logging in admin:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+module.exports = { registerUser, registerAdmin, loginUser, loginAdmin };
