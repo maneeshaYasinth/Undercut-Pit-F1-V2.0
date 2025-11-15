@@ -66,7 +66,7 @@ export default function RaceResults() {
           onChange={handleRoundChange}
           className="w-full p-2 rounded-lg text-white bg-red-800 backdrop-blur-md border border-red-600  transition duration-300"
         >
-          {Array.from({ length: 21 }, (_, i) => (
+          {Array.from({ length: 24 }, (_, i) => (
             <option key={i + 1} value={i + 1}>
               Round {i + 1}
             </option>
