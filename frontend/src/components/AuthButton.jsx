@@ -24,7 +24,7 @@ export default function ProfileDrawer() {
     <>
       <button
         onClick={toggleDrawer}
-        className="fixed top-4 right-4 z-80 bg-red-600 text-white p-2 rounded-lg hover:bg-red-700"
+        className="fixed top-4 right-4 z-[1001] bg-red-600 text-white p-2 rounded-lg hover:bg-red-700"
       >
         {user ? `Hi👋, ${user.username}` : "Login"}
       </button>

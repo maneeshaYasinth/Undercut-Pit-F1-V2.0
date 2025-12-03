@@ -38,7 +38,7 @@ export default function NewsFeed() {
       <div className="absolute inset-0 bg-black/60 -z-10" />
 
       <div className="relative z-10 p-6 min-h-screen text-white">
-        <h1 className="text-4xl font-bold mb-8 text-center drop-shadow-lg">
+        <h1 className="text-4xl font-bold mt-10 mb-8 text-center drop-shadow-lg">
           Latest F1 News
         </h1>
 

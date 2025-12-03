@@ -3,6 +3,7 @@ import bgVideo from "../assets/bg-video.mp4";
 function Home() {
   return (
     <div className="relative h-screen w-screen overflow-hidden">
+
       {/* Background Video */}
       <video
         autoPlay
@@ -16,10 +17,24 @@ function Home() {
       </video>
 
       {/* Overlay content */}
-      <div className="relative flex min-h-screen w-full items-center justify-center bg-black/40 text-white px-4 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-[pacifico] tracking-[0.2em] uppercase font-boldtext-red-500 drop-shadow-[0_0_15px_rgba(255,0,0,0.9)]">
+      <div className="relative flex min-h-screen w-full items-center justify-center bg-black/40 text-white px-4 text-center overflow-hidden">
+
+        {/* SPEED LINES */}
+        <div className="speed-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        {/* TEXT */}
+        <h1 className="sector-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
+        font-[Orbitron] tracking-[0.3em] uppercase font-extrabold 
+        text-white drop-shadow-[0_0_20px_rgba(255,0,0,1)] z-10">
           Sector 3
         </h1>
+
       </div>
     </div>
   );
