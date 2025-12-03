@@ -17,8 +17,8 @@ function Home() {
 
       {/* Overlay content */}
       <div className="relative flex min-h-screen w-full items-center justify-center bg-black/40 text-white px-4 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-[pacifico] tracking-[0.1em] uppercase font-bold">
-          UnderCutPit F1
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-[pacifico] tracking-[0.2em] uppercase font-boldtext-red-500 drop-shadow-[0_0_15px_rgba(255,0,0,0.9)]">
+          Sector 3
         </h1>
       </div>
     </div>

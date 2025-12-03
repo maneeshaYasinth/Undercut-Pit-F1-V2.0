@@ -44,7 +44,7 @@ export default function PredictionsPage() {
           {/* Leaderboard Card */}
           <div className="p-8 rounded-2xl bg-white/10 backdrop-blur-md border border-red-500/20 shadow-xl text-center">
             <h2 className="text-2xl font-bold text-red-400 mb-4">Leaderboard</h2>
-            <p className="text-white/80 mb-6">
+            <p className="text-white/80 mb-6 pb-6">
               Check out the leaderboard to see how you rank against other F1
               fans. Track your score throughout the season.
             </p>
