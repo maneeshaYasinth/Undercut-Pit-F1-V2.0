@@ -131,7 +131,7 @@ function Navbar() {
                 <div className="flex items-center gap-3">
                   <img src="/uf_logo.png" alt="Sector 3" className="w-12 h-12 rounded-md shadow-sm" />
                   <div>
-                    <div className="font-bold text-xl">Sector 3</div>
+                    <div className="text-white font-bold text-xl">Sector 3</div>
                     <div className="text-sm text-white/70">F1 predictions & stats</div>
                   </div>
                 </div>
