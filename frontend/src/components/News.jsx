@@ -22,20 +22,20 @@ export default function NewsFeed() {
   }, []);
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden">
+    <div className="relative min-h-screen w-screen overflow-y-auto">
       {/* Background Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        className="fixed top-0 left-0 w-full h-full object-cover -z-10"
       >
         <source src={bgVideo} type="video/mp4" />
       </video>
 
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/60 -z-10" />
+      <div className="absolute inset-0 bg-black/60 -z-10 pb-10" />
 
       <div className="relative z-10 p-6 min-h-screen text-white">
         <h1 className="text-4xl font-bold mt-10 mb-8 text-center drop-shadow-lg">
