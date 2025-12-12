@@ -30,6 +30,11 @@ export default function ProfileDrawer() {
     navigate("/login");
   }
 
+  const handleProfileNavigate= () =>{
+    setIsOpen(false);
+    navigate("/profile");
+  }
+
 
   return (
     <>
@@ -57,6 +62,12 @@ export default function ProfileDrawer() {
               className="mt-6 w-full z-55 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoggingOut ? "Logging out..." : "Logout"}
+            </button>
+            <button
+              onClick={handleProfileNavigate}
+              className="mt-6 w-full z-55 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg"
+            >
+              My Account
             </button>
           </>
         ) : (<>
