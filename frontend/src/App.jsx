@@ -15,6 +15,7 @@ import TeamRadio from './components/TeamRadio';
 import Session from './pages/Session';
 import AuthButton from './components/AuthButton'
 import SubmitResult from './pages/SubmitResult';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
         <Route path="/sessions" element={<Session />} />
         <Route path="/14ssmm" element={<SubmitResult />} />
         <Route path="/teamradio" element={<TeamRadio />} />
+        <Route path="/profile" element={<Profile />} />
+        
       </Routes>
     </>
   );
