@@ -143,4 +143,30 @@ const loginAdmin = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
-module.exports = { registerUser, registerAdmin, loginUser, loginAdmin };
+
+// logout user/admin
+const logout = async (req, res) => {
+  try {
+    // Get token from header
+    const token = req.headers.authorization?.split(' ')[1];
+
+    if (token) {
+      // Optional: Add token to blacklist in Redis/DB
+      console.log("User logged out successfully");
+    }
+
+    res.json({
+      message: "Logged out successfully",
+      success: true
+    });
+
+    console.log("Logout successful");
+
+  } catch (err) {
+    console.error("Error during logout:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+
+module.exports = { registerUser, registerAdmin, loginUser, loginAdmin, logout };

@@ -5,13 +5,24 @@ import { Link, useNavigate } from "react-router-dom";
 export default function ProfileDrawer() {
   const { user, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const toggleDrawer = () => setIsOpen(!isOpen);
   const navigate = useNavigate();
 
-  const handleLogout = () =>{
-    logout();
-    setIsOpen(false);
-    navigate("/login");
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await logout(false); // set to true if you want server-side logout
+      setIsOpen(false);
+      navigate("/login", { replace: true }); // replace prevents back button issues
+    } catch (error) {
+      console.error("Logout failed:", error);
+      // Still navigate even if logout had issues
+      setIsOpen(false);
+      navigate("/login", { replace: true });
+    } finally {
+      setIsLoggingOut(false);
+    }
   }
 
   const handleLogin = () =>{
@@ -42,9 +53,10 @@ export default function ProfileDrawer() {
             <p className="text-white">Email: {user.email}</p>
             <button
               onClick={handleLogout}
-              className="mt-6 w-full z-55 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg"
+              disabled={isLoggingOut}
+              className="mt-6 w-full z-55 bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Logout
+              {isLoggingOut ? "Logging out..." : "Logout"}
             </button>
           </>
         ) : (<>

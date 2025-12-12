@@ -18,9 +18,22 @@ export const AuthProvider = ({ children }) => {
   // Call this after login/register
   const loginUser = (userData) => setUser(userData);
 
-  const logout = () => {
-    logoutService(); // remove token & user from localStorage
-    setUser(null);   // update context
+  // Improved logout with async support and proper cleanup
+  const logout = async (notifyServer = false) => {
+    try {
+      await logoutService(notifyServer);
+      setUser(null); // update context
+      
+      // Dispatch a custom event to notify other components
+      window.dispatchEvent(new CustomEvent('user-logout'));
+      
+      return { success: true };
+    } catch (error) {
+      console.error("Logout error:", error);
+      // Even if server logout fails, clear local state
+      setUser(null);
+      return { success: false, error };
+    }
   };
 
   return (

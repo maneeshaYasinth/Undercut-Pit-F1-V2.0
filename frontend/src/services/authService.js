@@ -42,10 +42,47 @@ export const register = async ({ username, email, password }) => {
 export const getToken = () => localStorage.getItem("token");
 
 // Get current logged-in user from localStorage
-export const getUser = () => JSON.parse(localStorage.getItem("user")); // ✅ Helper
+export const getUser = () => {
+  try {
+    const user = localStorage.getItem("user");
+    return user ? JSON.parse(user) : null;
+  } catch (error) {
+    console.error("Error parsing user from localStorage:", error);
+    return null;
+  }
+};
 
-// Logout user (client-side only)
-export const logout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
+// Logout user (client + optional server-side)
+export const logout = async (notifyServer = false) => {
+  try {
+    // Optional: notify server to invalidate token/session
+    if (notifyServer && getToken()) {
+      try {
+        await axios.post(`${API_URL}/logout`, {}, {
+          headers: { Authorization: `Bearer ${getToken()}` }
+        });
+      } catch (error) {
+        console.warn("Server logout failed, continuing with client cleanup:", error);
+      }
+    }
+
+    // Clear all auth-related data from localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    
+    // Clear any other auth-related items (add more if needed)
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("tokenExpiry");
+    
+    // Clear sessionStorage as well (in case any auth data is stored there)
+    sessionStorage.clear();
+    
+    // Clear axios default headers if any were set
+    delete axios.defaults.headers.common['Authorization'];
+    
+    return { success: true };
+  } catch (error) {
+    console.error("Error during logout:", error);
+    throw error;
+  }
 };
