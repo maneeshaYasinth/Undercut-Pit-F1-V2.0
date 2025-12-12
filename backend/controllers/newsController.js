@@ -4,7 +4,7 @@ const getNews = async (req, res) => {
   try {
     const response = await axios.get("https://newsapi.org/v2/everything", {
       params: {
-        q: "Formula 1 OR F1",
+        q: "Formula 1 OR F1 OR Grand Prix OR motorsport OR racing OR Lewis Hamilton OR Max Verstappen OR Charles Leclerc",
         language: "en",
         sortBy: "publishedAt",
         pageSize: 10
