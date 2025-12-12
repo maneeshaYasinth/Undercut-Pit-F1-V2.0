@@ -3,7 +3,7 @@ import { getDriverStandings } from "../services/driverStansdingService";
 
 export default function DriverStandings() {
   const [positions, setPositions] = useState([]);
-  const [season, setSeason] = useState("2025"); // default season
+  const [season, setSeason] = useState("2026"); // default season
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +34,7 @@ export default function DriverStandings() {
           onChange={handleSeasonChange}
           className="w-full p-2 rounded-lg text-white bg-white/10 backdrop-blur-md border border-red-600 transition duration-300"
         >
+          <option value="2026">2026</option>
           <option value="2025">2025</option>
           <option value="2024">2024</option>
           <option value="2023">2023</option>
