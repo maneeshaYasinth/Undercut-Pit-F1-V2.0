@@ -60,6 +60,10 @@ app.use("/api/news", newsRoutes);
 const teamRadioRoutes = require("./routes/teamRadioRoutes");
 app.use("/api/teamradio", teamRadioRoutes);
 
+//get profile routes
+const profileRoutes = require("./routes/profileRoutes");
+app.use("/api/profile", profileRoutes);
+
 // Test route
 app.get("/api/test", (req, res) => {
   res.json({ message: "F1 Backend is running 🚀 lets goo" });
