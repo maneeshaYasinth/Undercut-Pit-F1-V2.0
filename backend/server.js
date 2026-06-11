@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const client = require("prom-client");
 
 // Load env vars
 dotenv.config();
@@ -11,13 +12,16 @@ connectDB();
 
 const app = express();
 
+// Prometheus setup
+const register = new client.Registry();
+client.collectDefaultMetrics({ register });
+
 // Middleware
 app.use(express.json());
 app.use(cors());
 
-
 //AuthRoutes
-const authRoutes = require("./routes/authRoutes"); 
+const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
 
 //get races routes
@@ -63,6 +67,12 @@ app.use("/api/teamradio", teamRadioRoutes);
 //get profile routes
 const profileRoutes = require("./routes/profileRoutes");
 app.use("/api/profile", profileRoutes);
+
+// Metrics endpoint
+app.get("/metrics", async (req, res) => {
+  res.set("Content-Type", register.contentType);
+  res.end(await register.metrics());
+});
 
 // Test route
 app.get("/api/test", (req, res) => {
